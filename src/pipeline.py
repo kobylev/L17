@@ -7,7 +7,7 @@ import time
 from sklearn.manifold import TSNE
 
 from .data_loader import load_dataset
-from .embeddings import tweets_to_embeddings
+from .embeddings import texts_to_embeddings
 from .pca import ManualPCA
 from .analysis import analyze_pca_components
 from .visualization import visualize_3d, plot_runtime_comparison, plot_category_histogram, plot_variance_pie_charts
@@ -93,12 +93,12 @@ def run_full_pipeline():
         dict: Results containing all data and metrics
     """
     # Step 1: Load dataset with labels
-    tweets, labels = load_dataset()
+    texts, labels = load_dataset()
 
-    # Step 2: Convert tweets to embeddings
-    print(f"\n2. Converting tweets to embeddings...")
-    embeddings, tokenized_tweets, valid_indices, w2v_model = tweets_to_embeddings(
-        tweets, vector_size=300
+    # Step 2: Convert texts to embeddings
+    print(f"\n2. Converting texts to embeddings...")
+    embeddings, tokenized_texts, valid_indices, w2v_model = texts_to_embeddings(
+        texts, vector_size=300
     )
 
     # Filter labels to match valid embeddings
@@ -128,10 +128,10 @@ def run_full_pipeline():
     print(f"{'='*60}")
 
     # Get sample texts for annotation
-    valid_tweets = np.array(tweets)[valid_indices].tolist()
+    valid_texts = np.array(texts)[valid_indices].tolist()
 
     visualize_3d(data_pca, data_tsne, runtime_pca, runtime_tsne,
-                labels=valid_labels, texts=valid_tweets)
+                labels=valid_labels, texts=valid_texts)
 
     # Create category distribution histogram
     plot_category_histogram(valid_labels)
@@ -144,7 +144,7 @@ def run_full_pipeline():
 
     # Return results for further use if needed
     return {
-        'tweets': tweets,
+        'texts': texts,
         'labels': labels,
         'valid_labels': valid_labels,
         'embeddings': embeddings,

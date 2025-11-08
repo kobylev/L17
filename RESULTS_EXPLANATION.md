@@ -185,18 +185,20 @@ PC1 = 0.195 × Dim7 - 0.176 × Dim217 + 0.163 × Dim83 + ...
 
 ---
 
-## 📊 Comparison: alt.atheism vs COVID Tweets
+## 📊 Dataset Characteristics: alt.atheism
 
-| Metric | alt.atheism | COVID Tweets (demo) |
-|--------|-------------|---------------------|
-| **Samples** | 4,928 | 1,000 |
-| **Unique words** | 3,278 | 30 |
-| **Variance (3 PCs)** | 98.51% | 97.63% |
-| **PCA Runtime** | 0.064s | 0.064s |
-| **t-SNE Runtime** | 27.6s | 2.0s |
-| **Diversity** | High (real discussions) | Low (5 repeated tweets) |
+| Metric | Value |
+|--------|-------|
+| **Samples** | 4,928 valid texts |
+| **Unique words** | 3,278 vocabulary |
+| **Variance (3 PCs)** | 98.45% preserved |
+| **PCA Runtime** | 0.064s |
+| **t-SNE Runtime** | 31.9s |
+| **Diversity** | High (real newsgroup discussions) |
+| **Categories** | 7 topic categories |
+| **Dominant category** | General Discussion (73.4%) |
 
-**Key insight:** Real data has more complexity but BETTER structure (98.51% variance)
+**Key insight:** Real data has rich structure with 98.45% variance captured in just 3 dimensions
 
 ---
 

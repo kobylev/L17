@@ -1,5 +1,5 @@
 """
-Text preprocessing utilities for tweet data
+Text preprocessing utilities for text data
 """
 
 import re
@@ -7,10 +7,10 @@ import re
 
 def clean_text(text):
     """
-    Clean and preprocess tweet text
+    Clean and preprocess text data
 
     Args:
-        text: Raw tweet text
+        text: Raw text string
 
     Returns:
         Cleaned text string

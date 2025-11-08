@@ -58,7 +58,7 @@ def analyze_pca_components(pca, w2v_model, top_n=10):
     print("         (e.g., information vs opinion, or sub-topics)")
     print("  - PC3: Tertiary variation, increasingly abstract")
     print("\nTo find semantic meaning, you would need to:")
-    print("  1. Examine tweets with extreme PC values (high/low)")
+    print("  1. Examine texts with extreme PC values (high/low)")
     print("  2. Look for patterns in their content")
     print("  3. Label the axis based on observed differences")
     print()

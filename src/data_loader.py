@@ -41,7 +41,7 @@ def load_dataset():
 
     Attempts to load from:
     1. data/alt.atheism.txt (primary text file)
-    2. CSV files (COVID-19 tweets)
+    2. CSV files (generic text data)
     3. Demo data (fallback)
 
     Returns:
@@ -96,11 +96,10 @@ def load_dataset():
     try:
         print("   Looking for CSV files...")
         possible_files = [
-            'coronavirus_tweets.csv',
-            'covid19_tweets.csv',
-            'tweets.csv',
-            'Corona_NLP_train.csv',
-            'Corona_NLP_test.csv'
+            'data.csv',
+            'texts.csv',
+            'dataset.csv',
+            'newsgroup.csv'
         ]
 
         df = None
@@ -126,7 +125,7 @@ def load_dataset():
         print(f"   Columns: {list(df.columns)}")
 
         # Find text column
-        text_columns = ['text', 'OriginalTweet', 'tweet', 'Tweet', 'full_text']
+        text_columns = ['text', 'content', 'message', 'document', 'data']
         text_col = None
         for col in text_columns:
             if col in df.columns:
@@ -139,17 +138,17 @@ def load_dataset():
 
         print(f"   Using text column: '{text_col}'")
 
-        # Sample tweets for faster processing
+        # Sample texts for faster processing
         n_samples = min(5000, len(df))
         sampled_df = df.sample(n=n_samples, random_state=42)
-        tweets = sampled_df[text_col].values
+        texts = sampled_df[text_col].values
 
         # Categorize each text
-        labels = [categorize_text(str(text)) for text in tweets]
+        labels = [categorize_text(str(text)) for text in texts]
 
         print(f"   Sampled {n_samples} texts for analysis")
 
-        return tweets, labels
+        return texts, labels
 
     except Exception as e:
         print(f"\n   WARNING: Could not load any dataset files!")
@@ -165,14 +164,16 @@ def _get_demo_data():
     Returns:
         tuple: (texts, labels) - List of sample texts and their category labels
     """
-    tweets = [
-        "COVID-19 cases are rising in many countries",
-        "Get vaccinated to protect yourself and others",
-        "Wearing masks helps prevent coronavirus spread",
-        "Social distancing is important during pandemic",
-        "Healthcare workers are heroes fighting COVID",
-    ] * 200  # Replicate for demonstration
+    texts = [
+        "The scientific method requires empirical evidence and testable hypotheses",
+        "Religious beliefs often shape cultural and moral frameworks in society",
+        "Separation of church and state is a fundamental democratic principle",
+        "Philosophical debates about morality have existed for millennia",
+        "Atheism is simply the absence of belief in deities",
+        "Many people find meaning through secular humanism and rationalism",
+        "Historical analysis reveals complex relationships between religion and politics",
+    ] * 150  # Replicate for demonstration
 
-    labels = [categorize_text(text) for text in tweets]
+    labels = [categorize_text(text) for text in texts]
 
-    return tweets, labels
+    return texts, labels

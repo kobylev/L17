@@ -1,5 +1,5 @@
 """
-COVID-19 Tweets Dimensionality Reduction Analysis
+Text Dimensionality Reduction Analysis
 Modular package for PCA and t-SNE analysis on text data
 """
 

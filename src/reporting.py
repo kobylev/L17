@@ -23,7 +23,7 @@ def print_visual_separation_analysis():
     print("\nt-SNE Results:")
     print("  • Non-linear dimensionality reduction preserving local structure")
     print("  • Better at revealing local neighborhoods and clusters")
-    print("  • May show more distinct groupings of similar tweets")
+    print("  • May show more distinct groupings of similar texts")
     print("  • Sensitive to perplexity parameter (balance local/global)")
 
 
