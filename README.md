@@ -155,18 +155,18 @@ TEXT DIMENSIONALITY REDUCTION ANALYSIS
 
 #### 2. **Word2Vec Embedding Generation**
 ```
-2. Converting tweets to embeddings...
+2. Converting texts to embeddings...
 
 WORD2VEC EMBEDDING GENERATION
 ============================================================
 
-Preprocessing tweets...
-  Total tweets after cleaning: 4945
+Preprocessing texts...
+  Total texts after cleaning: 4945
 
 Training Word2Vec model (vector_size=300)...
   Vocabulary size: 3278
 
-Converting tweets to document vectors...
+Converting texts to document vectors...
   Final embeddings shape: (4928, 300)
 ```
 **What this shows:** Text cleaning removes invalid samples, Word2Vec learns semantic relationships from 3,278 unique words, resulting in 4,928 valid 300-dimensional document vectors.
@@ -795,11 +795,11 @@ To interpret them semantically:
 **A:** Yes! The system has fallback support for CSV files.
 
 **Steps:**
-1. Place your CSV in the project root
-2. Ensure it has a column named: `text`, `OriginalTweet`, `tweet`, `Tweet`, or `full_text`
+1. Place your CSV in the project root or `data/` folder
+2. Ensure it has a column named: `text`, `content`, `message`, `document`, or `data`
 3. Run `python main.py`
 
-The script will auto-detect and load your CSV. For custom column names, modify `data_loader.py:129-134`.
+The script will auto-detect and load your CSV. For custom column names, modify `data_loader.py:127-133`.
 
 **Alternatively**, to use a different text file:
 1. Replace `data/alt.atheism.txt` with your file (one document per line)
