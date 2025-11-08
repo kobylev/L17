@@ -1,0 +1,52 @@
+# Python Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Data files (large datasets)
+*.csv
+*.tsv
+*.json
+*.xlsx
+!requirements.txt
+
+# Keep data folder structure but ignore large files
+data/*.txt
+data/*.csv
+!data/.gitkeep
+
+# Model files
+*.model
+*.pkl
+*.h5
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Keep visualizations but ignore temporary files
+*.png.tmp
